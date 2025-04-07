@@ -12,3 +12,6 @@ values ('Teste 1', current_timestamp, 'Alpha', 6, 'Bom, mas falta conteúdo'),
 ('Teste 2', current_timestamp, 'Beta', null, 'Incompleto');insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
 values ('Teste 1', current_timestamp, 'Alpha', 6, 'Bom, mas falta conteúdo'),
 ('Teste 2', current_timestamp, 'Beta', null, 'Incompleto');
+
+create user spring with password 'pass123';
+grant update, delete, insert, select on all tables in schema public to spring;
