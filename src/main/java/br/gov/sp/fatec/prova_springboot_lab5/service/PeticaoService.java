@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import br.gov.sp.fatec.prova_springboot_lab5.entity.Peticao;
-import br.gov.sp.fatec.prova_springboot_lab5.entity.Trabalho;
-import br.gov.sp.fatec.prova_springboot_lab5.repository.TrabalhoRepository;
+import br.gov.sp.fatec.prova_springboot_lab5.repository.PeticaoRepository;
 
 @Service
 public class PeticaoService {
@@ -36,7 +35,7 @@ public class PeticaoService {
         }
 
         // Se não vier data de entrega, define como agora
-        if (peticao.setDataHoraCriacao() == null) {
+        if (peticao.getDataHoraCriacao() == null) {
             peticao.setDataHoraCriacao(LocalDateTime.now());
         }
 
