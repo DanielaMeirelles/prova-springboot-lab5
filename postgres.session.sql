@@ -1,17 +1,14 @@
-create table tra_trabalho (
-tra_id bigint generated always as identity,
-tra_titulo varchar(100) not null unique,
-tra_data_hora_entrega timestamp not null,
-tra_descricao varchar(200),
-tra_grupo varchar(20) not null,
-tra_nota int,
-tra_justificativa varchar(100)
+create table pet_peticao (
+  pet_id bigint generated always as identity,
+  pet_texto varchar(150) not null,
+  pet_data_hora_criacao timestamp not null,
+  pet_data_hora_submissao timestamp,
+  pet_prioridade int,
+  pet_status varchar(5) not null
 );
-insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
-values ('Teste 1', current_timestamp, 'Alpha', 6, 'Bom, mas falta conteúdo'),
-('Teste 2', current_timestamp, 'Beta', null, 'Incompleto');insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
-values ('Teste 1', current_timestamp, 'Alpha', 6, 'Bom, mas falta conteúdo'),
-('Teste 2', current_timestamp, 'Beta', null, 'Incompleto');
 
-create user spring with password 'pass123';
-grant update, delete, insert, select on all tables in schema public to spring;
+insert into pet_peticao (pet_texto, pet_data_hora_criacao, pet_prioridade, pet_status)
+  values ('Exijo uma nota boa', current_timestamp, null, 'PEN'),
+         ('Socorro', current_timestamp, 3, 'CAN');
+
+
