@@ -45,6 +45,5 @@ public class PeticaoService {
     public List<Peticao> buscarPorPeticao(String texto, int prioridade) {
         return repo.buscarPorPeticao(texto, prioridade);
     }
-
 }
 

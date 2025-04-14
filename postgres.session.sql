@@ -12,3 +12,9 @@ insert into pet_peticao (pet_texto, pet_data_hora_criacao, pet_prioridade, pet_s
          ('Socorro', current_timestamp, 3, 'CAN');
 
 
+GRANT SELECT ON TABLE pet_peticao TO spring;
+
+GRANT INSERT, UPDATE, DELETE ON TABLE pet_peticao TO spring;
+
+SELECT CURRENT_USER;
+

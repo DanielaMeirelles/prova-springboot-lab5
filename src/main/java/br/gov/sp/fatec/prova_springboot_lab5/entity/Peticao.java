@@ -33,6 +33,8 @@ public class Peticao {
     @Column(name = "pet_status", nullable = false, length = 5)
     private String status;
 
+    public Peticao() {
+    }
 
     public Peticao(Long id, String texto, LocalDateTime dataHoraCriacao, LocalDateTime dataHoraSubmissao,
             Integer prioridade, String status) {
