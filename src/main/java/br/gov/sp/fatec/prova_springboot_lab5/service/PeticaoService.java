@@ -42,8 +42,12 @@ public class PeticaoService {
         return repo.save(peticao);
     }
 
-    public List<Peticao> buscarPorPeticao(String texto, int prioridade) {
-        return repo.buscarPorPeticao(texto, prioridade);
+    public List<Peticao> buscarPorPrioridade(int prioridade) {
+        return repo.buscarPorPrioridade(prioridade);
+    }
+
+    public List<Peticao> buscarPorDataExata(LocalDateTime data) {
+        return repo.buscarPorDataExata(data);
     }
 }
 
