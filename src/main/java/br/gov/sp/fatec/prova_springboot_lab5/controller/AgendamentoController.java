@@ -13,38 +13,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gov.sp.fatec.prova_springboot_lab5.entity.Peticao;
-import br.gov.sp.fatec.prova_springboot_lab5.service.PeticaoService;
+import br.gov.sp.fatec.prova_springboot_lab5.entity.Agendamento;
+import br.gov.sp.fatec.prova_springboot_lab5.service.AgendamentoService;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value = "/peticao")
-public class PeticaoController {
+@RequestMapping(value = "/agendamento")
+public class AgendamentoController {
 
     @Autowired
-    private PeticaoService service;
+    private AgendamentoService service;
 
     @GetMapping
-    public List<Peticao> listartodos() {
+    public List<Agendamento> listartodos() {
         return service.listarTodos();
     }
 
     @PostMapping
-    public Peticao cadastrar(@RequestBody Peticao peticao) {
-        return service.cadastrar(peticao);
+    public Agendamento cadastrar(@RequestBody Agendamento agendamento) {
+        return service.cadastrar(agendamento);
     }
 
-    @GetMapping("/pri")
-    public List<Peticao> buscarPorPrioridade(
-        @RequestParam int prioridade) {
-            return service.buscarPorPrioridade(prioridade);
-        }
-
-    @GetMapping("/buscar-por-data")
-    public List<Peticao> buscarPorDataExata(
+    @GetMapping("/buscar-data-intrucao")
+    public List<Agendamento> buscarPorDataInstrucao(
+        @RequestParam String instrucoes,
         @RequestParam("data")
         @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         LocalDateTime data) {
-            return service.buscarPorDataExata(data);
+            return service.buscarPorDataEInstrucao(instrucoes, data);
         }
 }

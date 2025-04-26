@@ -1,20 +1,14 @@
-create table pet_peticao (
-  pet_id bigint generated always as identity,
-  pet_texto varchar(150) not null,
-  pet_data_hora_criacao timestamp not null,
-  pet_data_hora_submissao timestamp,
-  pet_prioridade int,
-  pet_status varchar(5) not null
+create table age_agendamento (
+  age_id bigint generated always as identity,
+  age_instrucoes varchar(150),
+  age_valor float,
+  age_data_hora_inicio timestamp not null,
+  age_duracao_prevista int,
+  primary key(age_id)
 );
 
-insert into pet_peticao (pet_texto, pet_data_hora_criacao, pet_prioridade, pet_status)
-  values ('Exijo uma nota boa', current_timestamp, null, 'PEN'),
-         ('Socorro', current_timestamp, 3, 'CAN');
+insert into age_agendamento (age_instrucoes, age_data_hora_inicio, age_duracao_prevista)
+  values ('Chegue meia hora antes', '2025-04-24 19:35', 15),
+         (null, current_timestamp, null);
 
-
-GRANT SELECT ON TABLE pet_peticao TO spring;
-
-GRANT INSERT, UPDATE, DELETE ON TABLE pet_peticao TO spring;
-
-SELECT CURRENT_USER;
 
